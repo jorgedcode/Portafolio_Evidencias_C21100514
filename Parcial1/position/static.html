@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static</title>
+    <style>
+        body{
+            height: auto;
+            left: 0%;
+            top: 0%;
+            font-family: sans-serif;
+            background-color: rgb(10, 15, 29);
+            color: white;
+        }
+        h1{
+            width: auto;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .caja{
+            width:  150px;
+            height: 150px;
+            text-align: center;
+            border-radius: 20%;
+            box-sizing: border-box;
+            padding-top: 10%;
+        }
+        #cajaStatic{
+            position: static;
+        }
+        #cajaStaticInBl{
+            position: static;
+            display: inline-block;   
+        }
+        .caja.naranja{
+            background-color: rgb(145, 39, 0);
+            border: 2.5px solid rgb(209, 140, 12);
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio con Static</h1>
+    <div class="caja naranja" id="cajaStatic">Caja 1 Static</div>
+    <div class="caja naranja" id="cajaStaticInBl">Caja 2 Static In-Bl</div>
+    <div class="caja naranja" id="cajaStaticInBl">Caja 3 Static In-Bl</div>
+    <div class="caja naranja" id="cajaStatic">Caja 4 Static</div>
+    <div class="caja naranja" id="cajaStatic">Caja 5 Static</div>
+</body>
+</html>

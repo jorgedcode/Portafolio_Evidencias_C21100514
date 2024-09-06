@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relative</title>
+    <style>
+        body{
+            height: auto;
+            left: 0%;
+            top: 0%;
+            font-family: sans-serif;
+            background-color: rgb(10, 15, 29);
+            color: white;
+        }
+        h1{
+            width: auto;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .caja{
+            width:  150px;
+            height: 150px;
+            text-align: center;
+            border-radius: 20%;
+        }
+        #cajaRelative{
+            position: relative;
+            left: 50%;
+            top: -50px;
+        }
+        .caja.roja{
+            background-color: rgb(122, 0, 0);
+            border: 2.5px solid orange;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio con Relative</h1>
+    <div class="caja roja">Caja1</div>
+    <div class="caja roja" id="cajaRelative">Caja 2 Relative</div>
+    <div class="caja roja">Caja3</div>
+    <div class="caja roja" id="cajaRelative">Caja 4 Relative</div>
+    <div class="caja roja" id="cajaRelative">Caja 5 Relative</div>
+</body>
+</html>

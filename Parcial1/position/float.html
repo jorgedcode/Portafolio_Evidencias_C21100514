@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            background-color: #164b58;
+        }
+        h1{
+            color: skyblue;
+            text-align: center;
+        }
+        p{
+            margin: 5px;
+        }
+        .contenedor{
+            background-color: cadetblue;
+            overflow: auto;
+        }
+        .caja{
+            background-color: darkcyan;
+            border: 2.5px solid cyan;
+            border-radius: 20%;
+            color: aqua;
+            width:  150px;
+            height: 150px;
+            text-align: center;
+            margin:10px
+        }
+        #caja1{
+            float:right;
+        }
+        #caja3{
+            clear: both;
+        }
+        #caja4{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio con Float</h1>
+    <div class="contenedor">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis et distinctio nulla tempora consequuntur, ducimus repellat quo eaque reprehenderit possimus, sunt deleniti rem dolorum sapiente inventore laboriosam vel, unde nam.</p>
+        <div class="caja" id="caja1">Caja1</div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, esse impedit in, quod commodi minus soluta officia, recusandae nemo earum minima saepe harum ipsum deleniti. Rerum adipisci quis quaerat non!</p>
+        <div class="caja" id="caja2">Caja2</div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde non modi numquam totam veniam exercitationem, atque rerum et maxime eaque animi impedit excepturi porro consequuntur laborum, doloribus qui ratione earum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia ea deleniti voluptatum nostrum facere assumenda officiis, aperiam esse odit praesentium. Quae perspiciatis, odit labore maxime ducimus nemo sunt blanditiis praesentium.</p>
+        <div class="caja" id="caja3">Caja3</div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab nihil adipisci illum dolorem vitae obcaecati tempora esse quas velit inventore dolore maiores amet atque, deleniti in repellat, minima iusto officia?</p>
+        <div class="caja" id="caja4">Caja4</div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex doloremque error harum magnam natus eum labore recusandae praesentium tempore qui sunt dicta beatae ducimus sequi ab adipisci, nam voluptas aliquam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque minima dolor soluta officia excepturi voluptatibus aut consequuntur? Placeat minus accusamus quam veniam illum molestiae adipisci natus in velit, dolorum facere.</p>
+    </div>
+</body>
+</html>

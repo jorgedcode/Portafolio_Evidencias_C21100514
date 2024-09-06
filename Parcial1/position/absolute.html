@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute</title>
+    <style>
+        body{
+            height: auto;
+            left: 0%;
+            top: 0%;
+            font-family: sans-serif;
+            background-color: rgb(10, 15, 29);
+            color: white;
+        }
+        h1{
+            width: auto;
+            text-align: center;
+        }
+        .caja{
+            width:  150px;
+            height: 150px;
+            text-align: center;
+            border-radius: 20%;
+        }
+
+        #cajaAbsolute{
+            position: absolute;
+            left: 40%;
+        }
+        .caja.azul{
+            background-color: darkcyan;
+            border: 2.5px solid cyan;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="h1">Ejercicio con Absolute</h1>
+    <div class="caja azul" >Caja1</div>
+    <div class="caja azul" id="cajaAbsolute">Caja 2 Absolute</div>
+    <div class="caja azul">Caja3</div>
+    <div class="caja azul" id="cajaAbsolute">Caja 4 Absolute</div>
+    <div class="caja azul">Caja5</div>
+</body>
+</html>
