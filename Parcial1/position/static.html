@@ -26,14 +26,14 @@
             box-sizing: border-box;
             padding-top: 10%;
         }
-        #cajaStatic{
+        .static{
             position: static;
         }
-        #cajaStaticInBl{
+        .inlineBlock{
             position: static;
             display: inline-block;   
         }
-        .caja.naranja{
+        .naranja{
             background-color: rgb(145, 39, 0);
             border: 2.5px solid rgb(209, 140, 12);
             color: orange;
@@ -42,10 +42,10 @@
 </head>
 <body>
     <h1>Ejercicio con Static</h1>
-    <div class="caja naranja" id="cajaStatic">Caja 1 Static</div>
-    <div class="caja naranja" id="cajaStaticInBl">Caja 2 Static In-Bl</div>
-    <div class="caja naranja" id="cajaStaticInBl">Caja 3 Static In-Bl</div>
-    <div class="caja naranja" id="cajaStatic">Caja 4 Static</div>
-    <div class="caja naranja" id="cajaStatic">Caja 5 Static</div>
+    <div class="caja static naranja" >Caja 1 Static</div>
+    <div class="caja static inlineBlock naranja">Caja 2 Static In-Bl</div>
+    <div class="caja static inlineBlock naranja">Caja 3 Static In-Bl</div>
+    <div class="caja static naranja">Caja 4 Static</div>
+    <div class="caja static naranja">Caja 5 Static</div>
 </body>
 </html>

@@ -24,22 +24,22 @@
             text-align: center;
             border-radius: 20%;
         }
-        #cajaFixed{
+        .fixed{
             position: fixed;
             margin-left: 180px;
             opacity: 80%;
         }
-        .caja.verde{
+        .verde{
             background-color: rgb(8, 100, 8);
             border: 2.5px solid greenyellow;
             color: rgb(5, 255, 5);
         }
-        .caja.roja{
+        .roja{
             background-color: rgb(122, 0, 0);
             border: 2.5px solid orange;
             color: red;
         }
-        .caja.azul{
+        .azul{
             background-color: darkcyan;
             border: 2.5px solid cyan;
             color: aqua;
@@ -49,11 +49,11 @@
 <body>
     <h1>Ejercicio con Fixed</h1>
     <div class="caja azul">Caja 1</div>
-    <div class="caja verde" id="cajaFixed">Caja 2 fixed</div>
-    <div class="caja azul" id="cajaBlock">Caja 3</div>
-    <div class="caja verde" id="cajaFixed">Caja 4 Fixed</div>
-    <div class="caja roja" id="cajaBlock">Caja 5</div>
-    <div class="caja roja" id="cajaBlock">Caja 6</div>
-    <div class="caja roja" id="cajaBlock">Caja 7</div>
+    <div class="caja fixed verde">Caja 2 fixed</div>
+    <div class="caja azul">Caja 3</div>
+    <div class="caja fixed verde">Caja 4 Fixed</div>
+    <div class="caja roja">Caja 5</div>
+    <div class="caja roja">Caja 6</div>
+    <div class="caja roja">Caja 7</div>
 </body>
 </html>
