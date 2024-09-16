@@ -12,9 +12,8 @@
         }
 
         body{
-            background-image: url("https://i.ibb.co/tMgNGqd/background-blue.png");
-            background-repeat: no-repeat;
-            background-size: cover;
+            background: rgb(2,0,36);
+            background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(6,5,81,1) 29%, rgba(3,157,187,1) 100%);
             color: white;
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.7em;
@@ -75,6 +74,8 @@
             width: 200px;
             height: 150px;
             border-radius: 10%;
+            margin-left: 5px;
+            margin-right: 5px;
         }
         .caja{
             background-color: rgb(5, 9, 39);
@@ -84,8 +85,18 @@
             border-radius: 15%;
             height: auto;
             width: 60%;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             padding-bottom: 10px;
+            transition: 0.5s;
+            
+        }
+        .amenazas{
+            box-shadow: 0px 0px 5px 3px rgba(3,157,187,1);
+        }
+        .caja:hover{
+            transform: scale(1.1);
+            width: 95%;
+            box-shadow: 0px 0px 10px 5px #00c2cb;
         }
         .Der{
             float: right;
@@ -94,6 +105,9 @@
         .Izq{
             float: left;
             margin-left: 5px;
+        }
+        .p#malware::after{
+            content: "Hola mundo de CSS";
         }
     </style>
 </head>
@@ -114,14 +128,14 @@
         <br>
     </div>
     <div class="contenedor">
-        <div class="header">
+        <div class="header amenazas">
             <h2 class="textoCentrado">Amenazas Comunes</h2>
         </div>
         <br>
         <div class="caja Der">
             <h3 class="textoCentrado">Malware</h3>
             <img class="imgAmenazas Der" src="https://www.redseguridad.com/wp-content/uploads/sites/2/2020/08/malware-ciberataques.jpg" alt="imagen malware">
-            <p class="textoCaja">Es todo aquel software malintencionado. Incluye una variedad de programas de software creados para permitir que terceras partes accedan de manera no autorizada.</p>
+            <p class="textoCaja" >Es todo aquel software malintencionado. Incluye una variedad de programas de software creados para permitir que terceras partes accedan de manera no autorizada.</p>
         </div>
         <div class="caja Izq">
             <h3 class="textoCentrado">Ransomware</h3>
