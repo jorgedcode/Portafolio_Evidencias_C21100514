@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Stats</title>
+    <script>
+        function MostrarGarchomp() {
+            document.getElementById('stsGarchomp').style.visibility = 'visible';
+            document.getElementById('wksGarchomp').style.visibility = 'visible';
+            document.getElementById('inmGarchomp').style.visibility = 'visible';    
+        }
+        function OcultarGarchomp() {
+            document.getElementById('stsGarchomp').style.visibility = 'hidden';
+            document.getElementById('wksGarchomp').style.visibility = 'hidden';
+            document.getElementById('inmGarchomp').style.visibility = 'hidden';        
+        }
+        function MostrarGengar() {
+            document.getElementById('stsGengar').style.visibility = 'visible';
+            document.getElementById('wksGengar').style.visibility = 'visible';    
+            document.getElementById('inmGengar').style.visibility = 'visible';    
+        }
+        function OcultarGengar() {
+            document.getElementById('stsGengar').style.visibility = 'hidden';
+            document.getElementById('wksGengar').style.visibility = 'hidden';    
+            document.getElementById('inmGengar').style.visibility = 'hidden';    
+        }
+        function MostrarFurret() {
+            document.getElementById('stsFurret').style.visibility = 'visible';
+            document.getElementById('wksFurret').style.visibility = 'visible';    
+            document.getElementById('inmFurret').style.visibility = 'visible';    
+        }
+        function OcultarFurret() {
+            document.getElementById('stsFurret').style.visibility = 'hidden';
+            document.getElementById('wksFurret').style.visibility = 'hidden';    
+            document.getElementById('inmFurret').style.visibility = 'hidden';    
+        }
+        function MostrarZoroarkHs() {
+            document.getElementById('stsZoroarkHs').style.visibility = 'visible';
+            document.getElementById('wksZoroarkHs').style.visibility = 'visible';    
+            document.getElementById('inmZoroarkHs').style.visibility = 'visible';    
+        }
+        function OcultarZoroarkHs() {
+            document.getElementById('stsZoroarkHs').style.visibility = 'hidden';
+            document.getElementById('wksZoroarkHs').style.visibility = 'hidden';    
+            document.getElementById('inmZoroarkHs').style.visibility = 'hidden';    
+        }
+    </script>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body{
+            font-family: Arial, sans-serif;
+        }
+        .grid-container{
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            grid-template-columns: 100%;
+            grid-template-rows: 10% 60% 23% 7%;
+            grid-template-areas: "enca"
+                                "contepkm"
+                                "stats"
+                                "piepag";
+        }
+        .grid-container>div{
+            display: flex;
+            border: 1px solid black;
+            text-align: center;
+            justify-content: center;
+            
+        }
+
+        #cont1{
+            background-color: rgb(255, 21, 21);
+            grid-area: enca;
+            justify-items: center;
+            align-items: center;
+            color: white;
+        }
+        #cont2{
+            grid-area: contepkm;
+            background-color: rgb(1, 0, 41);
+            font-size: 18px;
+            overflow: auto;
+        }
+        #cont3{
+            grid-area: stats;
+            background-color: gold;
+            flex-direction: row;
+        }
+        #cont4{
+            grid-area: piepag;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .cajastats{
+            width: calc((100vw / 3) - 2vw);
+            border: 1px solid black;
+            background-color: khaki;
+        }
+
+        .cajaPkm{
+            margin-top: 10vh;
+            background-color: rgb(16, 132, 228);
+            display: inline-block;
+            height: fit-content;
+            border: 1px solid black;
+            border-radius: 15%;
+            margin-right: 5%;
+            margin-right: 5%;
+            transition: 0.7s;
+            padding-bottom: 2%;
+            overflow: hidden;
+            filter: brightness(10%);
+        }
+        .tipo{
+            display: inline;
+            margin-right: 1%;
+            padding-left: 3%;
+            padding-right: 3%;
+            border: 0.5px solid black;
+            border-radius: 20%;
+            font-weight: bold;
+        }
+        
+
+        .cajaPkm:hover{
+            transform: scale(1.2);
+            border: 1px solid cyan;
+            box-shadow: 0px 0px 10px 5px cyan;
+            filter: brightness(100%);
+
+        }
+        img{
+            transition: 0.7s;
+        }
+        
+        .pkm{
+            clear: both;
+            width: 15vw;
+            height: auto;   
+        }
+        .resistencias{
+            position: absolute;
+            width: calc((100% / 3) - 2vw);
+            margin-top: 2vh;
+            font-size: 18px;
+        }
+        
+        .debilidades{
+            position: absolute;
+            width: calc((100% / 3) - 2vw);
+            margin-top: 2vh;
+            font-size: 18px;
+        }
+        .inmune{
+            position: absolute;
+            width: calc((100% / 3) - 2vw);
+            margin-top: 2vh;
+            font-size: 18px;
+        }
+        
+        #stsGarchomp{
+            visibility: hidden;
+        }
+        #wksGarchomp{
+            visibility: hidden;
+        }
+        #inmGarchomp{
+            visibility: hidden;
+        }
+        #stsGengar{
+            visibility: hidden;
+        }
+        #wksGengar{
+            visibility: hidden;
+        }
+        #inmGengar{
+            visibility: hidden;
+        }
+        #stsZoroarkHs{
+            visibility: hidden;
+        }
+        #wksZoroarkHs{
+            visibility: hidden;
+        }
+        #inmZoroarkHs{
+            visibility: hidden;
+        }
+        #stsFurret{
+            visibility: hidden;
+        }
+        #wksFurret{
+            visibility: hidden;
+        }
+        #inmFurret{
+            visibility: hidden;
+        }
+
+        .Dragon{
+            background-color: steelblue;
+        }
+        .Tierra{
+            background-color: peru;
+        }
+        .Fantasma{
+            background-color: darkmagenta;
+            color: white;
+        }
+        .Veneno{
+            background-color: rgb(234, 0, 255);
+        }
+        .Normal{
+            background-color: gray;
+        }
+        .Electrico{
+            background-color: rgb(255, 255, 0);
+        }
+        .Roca{
+            background-color: rgb(141, 94, 49);
+            color: white;
+        }
+        .Fuego{
+            background-color: rgb(255, 94, 0);
+        }
+        .Lucha{
+            background-color: rgb(228, 53, 53);
+            color: white;
+        }
+        .Bicho{
+            background-color: rgb(136, 255, 0);
+        }
+        .Planta{
+            background-color: rgb(57, 201, 57);
+        }
+        .Hada{
+            background-color: rgb(255, 95, 135);
+        }
+        .Hielo{
+            background-color: rgb(114, 187, 255);
+        }
+        .Siniestro{
+            background-color: rgba(20, 4, 4, 0.815);
+            color: white;
+        }
+        .Psiquico{
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div id="cont1">
+            <h1>Tipos Pokemon</h1>
+        </div>
+        <div id="cont2">
+            <div class="cajaPkm" onmouseover="MostrarGarchomp()" onmouseout="OcultarGarchomp()" id="Garchomp">
+                <img class="pkm" src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/445.png" alt="Garchomp">
+                <h3>Garchomp</h2>
+                <p class="tipo Dragon">Dragón</p><p class="tipo Tierra">Tierra</p>
+            </div>
+            <div class="cajaPkm" id="Gengar" onmouseover="MostrarGengar()" onmouseout="OcultarGengar()">
+                <img class="pkm" src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/094.png" alt="Gengar">
+                <h3>Gengar</h2>
+                <p class="tipo Fantasma">Fantasma</p><p class="tipo Tierra">Veneno</p>
+            </div>
+            <div class="cajaPkm" id="Furret" onmouseover="MostrarFurret()" onmouseout="OcultarFurret()">
+                <img class="pkm" src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/162.png" alt="Furret">
+                <h3>Furret</h2>
+                <p class="tipo Normal">Normal</p>
+            </div>
+            <div class="cajaPkm" id="ZoroarkHs" onmouseover="MostrarZoroarkHs()" onmouseout="OcultarZoroarkHs()">
+                <img class="pkm" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/6/6d/latest/20211026150211/Zoroark_de_Hisui.png/200px-Zoroark_de_Hisui.png" alt="Zoroark de Hisui">
+                <h3>Zoroark de Hisui</h2>
+                <p class="tipo Normal">Normal</p><p class="tipo Fantasma">Fantasma</p>
+            </div>
+        </div>
+        <div id="cont3">
+            <div class="cajastats" id="cajaResis">
+                <h2>Resistente contra tipo:</h2>
+                <div class="resistencias" id="stsGarchomp">
+                    <div class="tipo Electrico">Eléctrico</div>
+                    <div class="tipo Roca">Roca</div>
+                    <div class="tipo Fuego">Fuego</div>
+                    <div class="tipo Veneno">Veneno</div>
+                </div>
+                <div class="resistencias" id="stsGengar">
+                    <div class="tipo Bicho">Bicho</div>
+                    <div class="tipo Veneno">Veneno</div>
+                    <div class="tipo Planta">Planta</div>
+                    <div class="tipo Hada">Hada</div>
+                </div>
+                <div class="resistencias" id="stsFurret">
+                    <p style="font-weight: bold;">Sin resistencias</p>
+                </div>
+                <div class="resistencias" id="stsZoroarkHs">
+                    <div class="tipo Bicho">Bicho</div>
+                    <div class="tipo Veneno">Veneno</div>
+                </div>
+            </div>
+            <div class="cajastats" id="cajaDebs">
+                <h2>Débil contra tipo:</h2>
+                <div class="debilidades" id="wksGarchomp">
+                    <div class="tipo Hielo">Hielo</div>
+                    <div class="tipo Dragon">Dragón</div>
+                    <div class="tipo Hada">Hada</div>
+                </div>
+                <div class="debilidades" id="wksGengar">
+                    <div class="tipo Fantasma">Fantasma</div>
+                    <div class="tipo Siniestro">Siniestro</div>
+                    <div class="tipo Tierra">Tierra</div>
+                    <div class="tipo Psiquico">Psiquico</div>
+                </div>
+                <div class="debilidades" id="wksFurret">
+                    <div class="tipo Lucha">Lucha</div>
+                </div>
+                <div class="debilidades" id="wksZoroarkHs">
+                    <div class="tipo Siniestro">Siniestro</div>
+                </div>
+            </div>
+            <div class="cajastats" id="cajaInmune">
+                <h2>Inmune a tipo:</h2>
+                <div class="inmune" id="inmGarchomp">
+                    <p style="font-weight: bold;">Sin inmunidades</p>
+                </div>
+                <div class="inmune" id="inmGengar">
+                    <div class="tipo Lucha">Lucha</div>
+                    <div class="tipo Normal">Normal</div>
+                </div>
+                <div class="inmune" id="inmFurret">
+                    <div class="tipo Fantasma">Fantasma</div>
+                </div>
+                <div class="inmune" id="inmZoroarkHs">
+                    <div class="tipo Fantasma">Fantasma</div>
+                    <div class="tipo Lucha">Lucha</div>
+                    <div class="tipo Normal">Normal</div>
+                </div>
+            </div>
+        </div>
+        <div id="cont4">
+            <p>Por:</p>
+            <p>Jorge Arturo Mata Camacho. C21100514</p>
+            <p>Miguel Ángel Cabrera García. 22100170</p>
+        </div>
+    </div>
+</body>
+</html>
