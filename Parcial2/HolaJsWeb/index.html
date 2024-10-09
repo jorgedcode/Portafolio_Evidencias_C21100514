@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hola Js Web</title>
+        <script src="./js/index.js"></script> <!-- El orden en que se importan las librerias importa -->
+        <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.7/underscore-umd-min.js"></script>
+    </head>
+    <body>
+        <button type="button" onclick="console.log('Hola mundo Js')">Botón Js</button>
+        <button type="button" onclick="presionBoton()">Botón 2 Js</button>
+
+        <script>
+            window.onload = function() { //Poner la función en OnLoad sirve para que cargue hasta que este todo el doc este cargado
+                console.log("Hola mundo body");
+            }
+
+            function presionBoton() {
+                console.log("Hola mundo presión Botón2");
+                
+                console.log( _.first([5, 4, 3, 2, 1]) );
+            }
+        </script>
+    </body>
+</html>
