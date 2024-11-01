@@ -1,0 +1,208 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+.grid-container{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 8% 75% 7%;
+    grid-template-areas: "enca"
+                        "busqueda"
+                        "contepkm"
+                        "piepag";
+}
+.grid-container>div{
+    display: flex;
+    border: 1px solid black;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.contenedorCajas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18vh 5vw;
+    padding: 0 10vw;
+    width: 100%;
+}
+
+.contBusqueda{
+    background-color: rgb(1, 0, 41);
+    grid-area: busqueda;
+    align-items: center;
+    justify-items: center;
+}
+
+#barbusqueda{
+    width: 20vw;
+    height: 5vh;
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+}
+
+.btnBuscar{
+    width: auto;
+    height: 30px;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+#cont1{
+    background-color: rgb(255, 21, 21);
+    grid-area: enca;
+    justify-items: center;
+    align-items: center;
+    color: white;
+}
+#cont2{
+    grid-area: contepkm;
+    background-color: rgb(1, 0, 41);
+    font-size: 18px;
+    overflow: auto;
+}
+#cont3{
+    grid-area: piepag;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+}
+
+.cajaPkm{
+    margin-top: 5vh;
+    margin-bottom: 4vh;
+    background-color: rgb(16, 132, 228);
+    display: inline-block;
+    height: fit-content;
+    justify-items: center;
+    border: 1px solid black;
+    border-radius: 15%;
+    margin-right: 5%;
+    margin-right: 5%;
+    transition: 0.7s;
+    padding-bottom: 2%;
+    overflow: hidden;
+}
+.tipo{
+    display: block;
+    width: fit-content;
+    margin-right: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    border: 0.5px solid black;
+    border-radius: 20%;
+    font-weight: bold;
+}
+
+.cajaPkm:hover{
+    transform: scale(1.2);
+    border: 1px solid cyan;
+    box-shadow: 0px 0px 10px 5px cyan;
+
+}
+img{
+    transition: 0.7s;
+}
+
+.pkm{
+    clear: both;
+    width: 10vw;
+    height: auto;   
+}
+.shiny{
+    position: fixed;
+    top: 30vh;
+    left: 1.5vw;
+    padding: 10px 15px;
+    height: fit-content;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.shiny.active {
+    background-color: #FFCC00; /* Color cuando está activado */
+    color: black;
+    transform: scale(1.1); /* Aumentar tamaño al activarse */
+}
+
+.shiny:hover {
+    background-color: #0056b3;
+}
+
+.shiny.active:hover{
+    background-color: #FF8C00;
+}
+
+.dragon{
+    background-color: steelblue;
+}
+.ground{
+    background-color: peru;
+}
+.ghost{
+    background-color: darkmagenta;
+    color: white;
+}
+.poison{
+    background-color: rgb(234, 0, 255);
+}
+.normal{
+    background-color: gray;
+}
+.electric{
+    background-color: rgb(255, 255, 0);
+}
+.rock{
+    background-color: rgb(141, 94, 49);
+    color: white;
+}
+.fire{
+    background-color: rgb(255, 94, 0);
+}
+.fighting{
+    background-color: rgb(228, 53, 53);
+    color: white;
+}
+.bug{
+    background-color: rgb(136, 255, 0);
+}
+.grass{
+    background-color: rgb(57, 201, 57);
+}
+.fairy{
+    background-color: rgb(255, 95, 135);
+}
+.ice{
+    background-color: rgb(114, 187, 255);
+}
+.dark{
+    background-color: rgba(20, 4, 4, 0.815);
+    color: white;
+}
+.psychic{
+    background-color: coral;
+}
+.flying{
+    background-color: aquamarine;
+}
+.steel{
+    background-color: darkgray;
+}
+.water{
+    background-color: aqua;
+}

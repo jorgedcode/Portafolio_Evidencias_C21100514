@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciberseguridad</title>
+    <link rel="stylesheet" href="articulo.css">
+    
+</head>
+<body>
+    
+    <div class="contenedor" id="conceptos">
+        <div class="header">
+            <h1 class="textoCentrado">¿Qué es la ciberseguridad?</h1>
+        </div>
+        <br>
+        <div class="linea"></div>
+        <p>Para entender este tema es importante conocer el concepto de Seguridad de la Información y Seguridad Informática</p>
+        <img class="imgPrincipal" src="https://web-assets.esetstatic.com/wls/2022/07/curso-online-ciberseguridad-empresas.jpg" alt="Imagen Ciberseguridad">
+        <h2>Seguridad de la Información</h2>
+        <img src="https://conecta.tec.mx/sites/default/files/styles/header_full/public/2021-08/ciberseguridad-tec-de-monterrey.jpg.webp?itok=W-r5RhYK" alt="" class="imgSeguridad">
+        <p>La seguridad de la información nos habla sobre métodos y procesos que procuran proteger los archivos de información en sus diferentes formas.</p>
+        <h2>Seguridad Informática</h2>
+        <p>Se trata de la seguridad de la información antes mencionada pero solo dentro de la informática. Es la protección de los datos tanto en nivel lógico como físico.</p>
+        <br>
+    </div>
+    
+    <div class="contenedor"  id="contAme">
+        <div class="header amenazas">
+            <h2 class="textoCentrado">Amenazas Comunes</h2>
+        </div>
+        <button id="soluciones">Soluciones</button>
+        <br>
+        <div class="caja Der" id="malware">
+            <h3 class="textoCentrado">Malware</h3>
+            <img class="imgAmenazas Der" src="https://www.redseguridad.com/wp-content/uploads/sites/2/2020/08/malware-ciberataques.jpg" alt="imagen malware">
+            <p class="textoCaja" id='textoMalware'>Es todo aquel software malintencionado. Incluye una variedad de programas de software creados para permitir que terceras partes accedan de manera no autorizada.</p>
+        </div>
+        <div class="caja Izq" id="ransomware">
+            <h3 class="textoCentrado">Ransomware</h3>
+            <img class="imgAmenazas Izq" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWRsx7niFNFCN2Wmot-o6M8sU5Tj9LzFyHeA&s" alt="imagen ransomware">
+            <p class="textoCaja" id="textoRansomware">Se refiere al secuestro de datos a través de software malicioso, en donde los datos se encriptan bajo.</p>
+        </div>
+        <div class="caja Der" id="phishing">
+            <h3 class="textoCentrado">Phishing</h3>
+            <img class="imgAmenazas Der" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmGiUF2Yw4e38pTbW5D1PzOCppByPReIyVLw&s" alt="imagen phishing">
+            <p class="textoCaja" id="textoPhishing">Es una ciberamenaza que usa técnicas de ingeniería social para engañar a los usuarios a fin de que revelen información de identificación personal.</p>
+        </div>
+        <div class="caja Izq" id="amInterna">
+            <h3 class="textoCentrado">Amenaza Interna</h3>
+            <img src="https://prensariotila.com/wp-content/uploads/2024/02/Kaspersky-1.jpg" alt="imagen Amenaza interna" class="imgAmenazas Izq">
+            <p class="textoCaja" id="textoAmInterna">Una amenaza interna es un riesgo de seguridad introducido por personal con malas intenciones dentro de una organización.</p>
+        </div>
+    </div>
+
+    <script>
+
+        // Boton para mostrar soluciones
+        const btn = document.getElementById("soluciones");
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+
+            if(btn.classList.contains('active')){
+                document.getElementById("textoMalware").innerHTML = "Para combatir el malware, puedes utilizar software antivirus, mantener los sistemas actualizados, y seguir buenas prácticas de ciberseguridad.";
+                document.getElementById("textoRansomware").innerHTML = "Hay dos medidas muy importantes para protegerse del ransomware: ejercer la prudencia y usar software de seguridad de primer nivel. En el caso particular del ransomware, también es muy importante contar con copias de seguridad.";
+                document.getElementById("textoPhishing").innerHTML = "Se requiere una combinación de educación del usuario, implementación de medidas de seguridad como la autenticación de dos factores, y el uso de tecnología de filtrado. Mantenerse informado y adoptar prácticas seguras en línea son claves para minimizar el riesgo de ataques de phishing y proteger la información personal.";
+                document.getElementById("textoAmInterna").innerHTML = "Abordar las amenazas internas requiere un control de acceso riguroso, monitoreo constante y capacitación continua, lo que ayuda a proteger la información sensible y fortalecer la seguridad organizacional.";
+            }
+            else {
+                document.getElementById("textoMalware").innerHTML = "Es todo aquel software malintencionado. Incluye una variedad de programas de software creados para permitir que terceras partes accedan de manera no autorizada.";
+                document.getElementById("textoRansomware").innerHTML = "Se refiere al secuestro de datos a través de software malicioso, en donde los datos se encriptan bajo.";
+                document.getElementById("textoPhishing").innerHTML = "Es una ciberamenaza que usa técnicas de ingeniería social para engañar a los usuarios a fin de que revelen información de identificación personal.";
+                document.getElementById("textoAmInterna").innerHTML = "Una amenaza interna es un riesgo de seguridad introducido por personal con malas intenciones dentro de una organización.";
+            }
+        });
+        
+
+        // Cambiar color del fondo a azul
+        document.getElementById('conceptos').addEventListener('mouseover', () => {
+            document.documentElement.style.setProperty('--headercolor', 'steelblue');
+            document.documentElement.style.setProperty('--borderColor', 'cyan');
+            document.documentElement.style.setProperty('--bgcolorLig', 'rgba(3,157,187,1)');
+            setTimeout(() => document.documentElement.style.setProperty('--bgcolorMid', 'rgba(6,5,81,1)'), 100);
+            setTimeout(() => document.documentElement.style.setProperty('--bgcolorOscuro', 'rgba(2,0,36,1)'), 100);
+            
+            
+        });
+
+        // Cambiar color del fondo a rojo
+        document.getElementById('contAme').addEventListener('mouseover', () => {
+            document.documentElement.style.setProperty('--headercolor', '#a00000');
+            document.documentElement.style.setProperty('--borderColor', '#ff0032');
+            document.documentElement.style.setProperty('--bgcolorLig', '#600000');
+            setTimeout(() => document.documentElement.style.setProperty('--bgcolorMid', '#660000'), 100);
+            setTimeout(() => document.documentElement.style.setProperty('--bgcolorOscuro', '#4c0000'), 100);
+        })
+
+
+        // Caja Malware
+        document.getElementById('malware').addEventListener('mouseover', () => {
+            document.getElementById('textoMalware').style.visibility = "visible";
+        });
+        document.getElementById('malware').addEventListener('mouseout', () => {
+            document.getElementById('textoMalware').style.visibility = "hidden";
+        });
+
+        // Caja Ransomware
+        document.getElementById('ransomware').addEventListener('mouseover', () => {
+            document.getElementById('textoRansomware').style.visibility = "visible";
+        });
+        document.getElementById('ransomware').addEventListener('mouseout', () => {
+            document.getElementById('textoRansomware').style.visibility = "hidden";
+        });
+
+        // Caja Phising
+        document.getElementById('phishing').addEventListener('mouseover', () => {
+            document.getElementById('textoPhishing').style.visibility = "visible";
+        });
+        document.getElementById('phishing').addEventListener('mouseout', () => {
+            document.getElementById('textoPhishing').style.visibility = "hidden";
+        });
+
+        // Caja Amenaza Interna
+        document.getElementById('amInterna').addEventListener('mouseover', () => {
+            document.getElementById('textoAmInterna').style.visibility = "visible";
+        });
+        document.getElementById('amInterna').addEventListener('mouseout', () => {
+            document.getElementById('textoAmInterna').style.visibility = "hidden";
+        });
+
+    </script>
+</body>
+</html>

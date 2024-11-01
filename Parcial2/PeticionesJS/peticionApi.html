@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peticiones</title>
+    <link rel="stylesheet" href="./peticiones.css">
+</head>
+<body>
+    <div class="grid-container">
+        <div id="cont1">
+            <h1>Poke API</h1>
+        </div>
+        <div class="contBusqueda">
+            <div>
+                <input type="text" id="barbusqueda" placeholder="Buscar por numero(del 1 al 1025) o nombre">
+                <button class="btnBuscar" id="btnBuscarfetch">Buscar fetch promise</button>
+                <button class="btnBuscar" id="btnCargarAsync">Cargar 20 con async/await</button>
+                <button class="btnBuscar" id="btnCargarSigXMLHttp">Siguiente pagina con XMLHttpRequest</button>
+                <button class="btnBuscar" id="btnCargarAtras">Página anterior</button>
+            </div>
+        </div>
+        <div id="cont2">
+            <button class="shiny" id="btnShiny">Shiny</button>
+            <div class="contenedorCajas" id="container">
+                
+            </div>
+        </div>
+        <div id="cont3">
+            <p>Por:</p>
+            <p>Jorge Arturo Mata Camacho. C21100514</p>
+            <p>Diego Garces Cavazos. 22100185</p>
+        </div>
+    </div>
+
+    <script>
+        
+        const contcaja = '<img id="imgpkm" class="pkm" src="" alt=""><h3 id="nombre"></h2>';
+        let arrPkmn = [];
+        let pagPrev, pagSig;
+
+        // Async / Await         
+        document.getElementById('btnCargarAsync').addEventListener('click', async() => {
+            try{
+                arrPkmn = [];
+                let cajas = document.getElementsByClassName('cajaPkm');
+            
+                if(cajas.length > 0){
+                    document.getElementById('container').innerHTML = "";
+                }
+
+                let nombre = document.getElementById('barbusqueda').value;
+                let resultado = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20');
+                let dato = await resultado.json();
+                pagSig = dato.next;
+                pagPrev = dato.previous;
+                for(pkm of dato.results){
+                    let pkmRes = await fetch(pkm.url);
+                    let pkmDato = await pkmRes.json();
+                    arrPkmn.push(pkmDato);
+                }
+                mostrarCajas();
+
+            }catch(error){
+                alert("Ocurrio un error, vuelva a intentarlo");
+                console.error(error);
+            }
+        })
+
+        // Fetch Promise
+        document.getElementById('btnBuscarfetch').addEventListener('click', () => {
+            arrPkmn = [];
+            let cajas = document.getElementsByClassName('cajaPkm');
+            
+            if(cajas.length > 0){
+                document.getElementById('container').innerHTML = "";
+            }
+            let nombre = document.getElementById('barbusqueda').value;
+            if(!nombre || !nombre.trim()){
+                alert("Ingrese un nombre o numero");
+                return;
+            }
+            fetch('https://pokeapi.co/api/v2/pokemon/'+nombre)
+           .then(response => {
+             if(!response.ok){
+                 throw new Error(response.status+" Error al obtener los datos.");
+             }
+             return response.json();
+           })
+           .then(dato => {
+                arrPkmn.push(dato);
+            })
+           .catch(error => {
+                alert("No existe ese pokemon");
+                console.error(error);
+            }).finally(() => {
+                mostrarCajas();
+            })
+        });
+
+        // XMLHttpRequest
+        document.getElementById('btnCargarSigXMLHttp').addEventListener('click', () => {
+            if(arrPkmn.length == 0){
+                alert("Debe cargar los primeros 20 pokemon para poder cambiar de página");
+                pagSig=null;
+                pagPrev=null;
+                return;
+            }
+            if(!pagSig){
+                alert("No hay una pagina siguiente");
+                return;
+            }
+            arrPkmn = [];
+            let cajas = document.getElementsByClassName('cajaPkm');
+        
+            if(cajas.length > 0){
+                document.getElementById('container').innerHTML = "";
+            }
+            let data;
+            let solicitud = new XMLHttpRequest();
+            solicitud.open("GET", pagSig, true);
+            solicitud.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200){
+                    data = JSON.parse(solicitud.response);
+                    pagSig = data.next;
+                    pagPrev = data.previous;
+                    let cantPkm = data.results.length;
+                    let contador = 0;
+                    for(pkm of data.results){
+                        let solicitudPkm = new XMLHttpRequest();
+                        solicitudPkm.open("GET", pkm.url, true);
+                        solicitudPkm.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200){
+                                let pkmData = JSON.parse(solicitudPkm.response);
+                                arrPkmn.push(pkmData);
+                                contador++;
+                                if(contador == cantPkm){
+                                    mostrarCajas();
+                                }
+                            }   
+                        }
+                        solicitudPkm.send();
+                    }    
+                }
+            }
+            solicitud.send();
+        });
+
+        // Pagina anterior con Async / await
+        document.getElementById('btnCargarAtras').addEventListener('click', async() => {
+            try{
+                if(arrPkmn == 0){
+                    alert("No hay pagina cargada");
+                    return;
+                }
+                if(!pagPrev){
+                    alert("No hay una pagina anterior");
+                    return;
+                }
+                arrPkmn = [];
+                let cajas = document.getElementsByClassName('cajaPkm');
+                if(cajas.length > 0){
+                    document.getElementById('container').innerHTML = "";
+                }
+                let resultado = await fetch(pagPrev);
+                let data = await resultado.json();
+                pagSig = data.next;
+                pagPrev = data.previous;
+
+                for(pkm of data.results){
+                    let pkmRes = await fetch(pkm.url);
+                    let pkmDato = await pkmRes.json();
+                    arrPkmn.push(pkmDato);
+                }
+                mostrarCajas();
+            }catch(error){
+                alert("Ocurrio un error, vuelva a intentarlo");
+                console.error(error);
+            }
+        })
+
+        let shinys = false;
+        document.getElementById('btnShiny').addEventListener('click', () => {
+            shinys = !shinys;
+            if(shinys){
+                document.getElementById('btnShiny').classList.add('active');
+            }else{
+                document.getElementById('btnShiny').classList.remove('active');
+            }
+            if(arrPkmn != null){
+                mostrarCajas();
+            }
+        })
+
+        function mostrarCajas() {
+            if(arrPkmn == []){
+                return;
+            }
+            let i = 0;
+            let cajas = document.getElementsByClassName('cajaPkm');
+            
+            if(cajas.length > 0){
+                document.getElementById('container').innerHTML = "";
+            }
+            arrPkmn.forEach(pkmn => {
+                const container = document.getElementById('container');
+                const caja = document.createElement('div');
+                caja.className = 'cajaPkm';
+                caja.id = `pokemon${i}`;
+                
+                caja.innerHTML = `
+                    <img src='' id='imgpkm${i}'>
+                    <h3 id='nombre${i}'></h3>`;
+
+                container.appendChild(caja);
+                
+                var tipos = pkmn.types;
+                tipos.forEach(tipo => {
+                    caja.innerHTML += `<p class='tipo ${tipo.type.name}'>${tipo.type.name}</p>`;
+                });
+                document.getElementById(`nombre${i}`).innerText = pkmn.name;
+                if(shinys){
+                    document.getElementById(`imgpkm${i}`).src = pkmn.sprites.front_shiny;
+                }else{
+                    document.getElementById(`imgpkm${i}`).src = pkmn.sprites.front_default;
+                }
+                i++;
+            });
+        }
+    </script>
+</body>
+</html>
