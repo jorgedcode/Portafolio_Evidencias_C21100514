@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peticiones</title>
     <link rel="stylesheet" href="./peticiones.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="grid-container">
@@ -179,18 +180,20 @@
             }
         })
 
+        // Mostrar shiny con JQUERY
         let shinys = false;
-        document.getElementById('btnShiny').addEventListener('click', () => {
+        
+        $('#btnShiny').on('click', function() {
             shinys = !shinys;
-            if(shinys){
-                document.getElementById('btnShiny').classList.add('active');
-            }else{
-                document.getElementById('btnShiny').classList.remove('active');
+            if (shinys) {
+                $(this).addClass('active');
+            } else {
+                $(this).removeClass('active');
             }
-            if(arrPkmn != null){
+            if (arrPkmn != null) {
                 mostrarCajas();
             }
-        })
+        });
 
         function mostrarCajas() {
             if(arrPkmn == []){
